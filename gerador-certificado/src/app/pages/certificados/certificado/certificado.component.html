@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between">
-  <a class="flex items-center gap-1.5 font-semibold text-sm leading-5 cursor-pointer text-[#64748B]">
+  <a routerLink="/" class="flex items-center gap-1.5 font-semibold text-sm leading-5 cursor-pointer text-[#64748B]">
     <i class="ph ph-arrow-left text-xl"></i>
     Voltar
   </a>
@@ -8,6 +8,25 @@
 </div>
 
 <div class="certificate flex items-center justify-center w-200 h-137.5 mt-8 rounded-xl relative">
-  <img class="absolute top-3 left-3" src="certificate/certif-logo.svg" alt="">
-  <div class="w-180 h-[470px] rounded-lg pt-16 pb-10 px-10 bg-white"></div>
+  <img class="absolute top-3 left-3 z-1" src="certificate/certif-logo.svg" alt="">
+
+  <div class="w-180 h-[470px] rounded-lg pt-16 pb-10 px-10 bg-white relative">
+    <img src="certificate/signature.svg" alt="Assinatura" class="absolute w-16 h-16 bottom-6 right-10">
+    <div class="flex flex-col items-center gap-7">
+      <div class="flex flex-col gap-2 items-center">
+        <h1 class="font-black text-2xl text-[#1A2856] uppercase tracking-[2.4px]">Certificado de conclusão</h1>
+        <span class="font-normal text-xs text-[#121621]">Este certificado comprova que</span>
+      </div>
+      <p class="font-dancing font-bold text-[52px] leading-20 text-[#3B5AC2]">Ana Silva Lopes</p>
+
+      <div class="w-[413px] flex flex-col items-center gap-2">
+        <span class="font-normal text-xs text-[#121621]" >Concluiu com sucesso as seguintes atividades</span>
+        <p class="font-normal text-sm text-[#121621] text-center">
+          Introdução ao Angular, Configuração com Angular CLI, Criação de componentes reutilizáveis, Manipulação de dados,
+          Implementação de data binding, Criação de rotas com Angular Router, Consumo de APIs REST
+        </p>
+      </div>
+    </div>
+    <p class="font-bold text-[11.2px] text-[#121621] mt-12 text-center">Emitido em 25/04/2025</p>
+  </div>
 </div>
