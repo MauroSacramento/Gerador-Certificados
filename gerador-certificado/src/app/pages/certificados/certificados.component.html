@@ -3,20 +3,27 @@
   <p class="font-normal text-sm text-[#64748B] leading-5">Visualizes todos os certificados gerados</p>
 </div>
 
-<!-- <div class="flex w-full flex-col items-center gap-5 rounded-lg px-8 py-12 border border-[#E2E8F0]">
-  <i class="ph ph-certificate text-5xl text-[#64748B]"></i>
+<div class="px-16">
 
-  <div class="flex flex-col items-center gap-0.5">
-    <h2 class="font-bold text-sm text-[#121621] leading-5">Nenhum certificado gerado</h2>
-    <p class="font-normal text-xs text-[#64748B] leading-4">Gere certificados para consultar o histórico</p>
+  @if (listCertificate.length == 0) {
+    <div class="flex w-full flex-col items-center gap-5 rounded-lg px-8 py-12 border border-[#E2E8F0]">
+    <i class="ph ph-certificate text-5xl text-[#64748B]"></i>
+
+    <div class="flex flex-col items-center gap-0.5">
+      <h2 class="font-bold text-sm text-[#121621] leading-5">Nenhum certificado gerado</h2>
+      <p class="font-normal text-xs text-[#64748B] leading-4">Gere certificados para consultar o histórico</p>
+    </div>
+
+    <app-secondary-button routerLink="/certificates/new" label="Gerar certificado"/>
   </div>
 
-  <app-secondary-button routerLink="/certificates/new" label="Gerar certificado"/>
-</div> -->
+  } @else {
+    <div class="flex flex-col gap-2">
+      <app-item-certificado/>
+      <app-item-certificado/>
+      <app-item-certificado/>
+      <app-item-certificado/>
+    </div>
+  }
 
-<div class="flex flex-col gap-2">
-  <app-item-certificado/>
-  <app-item-certificado/>
-  <app-item-certificado/>
-  <app-item-certificado/>
 </div>
