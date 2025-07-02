@@ -1,8 +1,7 @@
 <h1 align="center"> Gerador de Certificados </h1>
 
 <p align="center">
-Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologias WEB. <br/>
-<a href="https://lp.rocketseat.com.br/devlinks/inscricao?utm_source=github&utm_medium=descricao&utm_campaign=capture-devlinks&utm_term=organic&utm_content=descricao-github-mayk-brito">Estude esse projeto em formato de vídeo clicando aqui.</a>
+Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologias WEB.
 </p>
 
 <p align="center">
@@ -19,7 +18,7 @@ Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnolog
 <br>
 
 <p align="center">
-  <img alt="projeto DevLinks" src=".github/preview.jpg" width="100%">
+  <img alt="projeto de Gerador de Certificados" src=".github/preview.jpg" width="100%">
 </p>
 
 ## 🚀 Tecnologias
