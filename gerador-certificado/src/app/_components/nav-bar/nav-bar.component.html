@@ -6,13 +6,13 @@
 
     <div>
       <ul class="flex gap-6">
-        <li class="flex items-center gap-1.5 text-[#3B5AC2]">
+        <li routerLink="certificates" class="flex items-center gap-1.5">
           <i class="ph ph-medal"></i>
-          <a class="font-semibold cursor-pointer">Lista de Certificados</a>
+          <a routerLink="/" routerLinkActive="text-[#3B5AC2]" [routerLinkActiveOptions]="{exact: true}" class="font-semibold cursor-pointer">Lista de Certificados</a>
         </li>
         <li class="flex items-center gap-1.5">
           <i class="ph ph-circles-three-plus"></i>
-          <a class="font-semibold cursor-pointer">Gerar Certificado</a>
+          <a routerLink="/certificates/new" routerLinkActive="text-[#3B5AC2]" [routerLinkActiveOptions]="{exact: true}" class="font-semibold cursor-pointer">Gerar Certificado</a>
         </li>
       </ul>
     </div>

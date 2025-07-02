@@ -1,4 +1,8 @@
-<Button class="h-12 py-3 px-4 border-o rounded-[0.4rem] text-base text-white bg-linear-to-t from-[#1A2856] to-[#334EA9]
-cursor-pointer hover:opacity-90">
+<Button
+  [disabled]="disabled"
+  [type]="type"
+  [ngStyle]="disabled ? {'opacity': '50%', 'cursor': 'not-allowed'} : {}"
+  class="w-full h-12 py-3 px-4 border-o rounded-[0.4rem] text-base text-white bg-linear-to-t from-[#1A2856] to-[#334EA9]
+  cursor-pointer hover:opacity-90">
   {{ label }}
 </Button>

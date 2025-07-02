@@ -19,10 +19,9 @@
 
   } @else {
     <div class="flex flex-col gap-2">
-      <app-item-certificado/>
-      <app-item-certificado/>
-      <app-item-certificado/>
-      <app-item-certificado/>
+      @for (certificate of listCertificate; track $index) {
+        <app-item-certificado [name]="certificate.name" [date]="certificate.dataEmissao" [id]="certificate.id"/>
+      }
     </div>
   }
 

@@ -1,62 +1,83 @@
-<div class="text-center h-15 mb-8">
-  <h1 class="font-bold text-2xl text-[#121621] leading-9 mb-1">Certificados gerados</h1>
-  <p class="font-normal text-sm text-[#64748B] leading-5">Preencha os dados para gerar um novo certificado</p>
-</div>
-
-<div class="flex w-full flex-col gap-5 rounded-lg p-8 border border-[#E2E8F0]">
-  <h2 class="font-bold text-lg text-[#121621] leading-7">Novo certificado</h2>
-
-  <div class="w-full flex flex-col gap-2">
-    <label class="font-normal text-sm leading-5 text-[#1A2856]" for="">Nome completo</label>
-    <input class="px-3 py-2 rounded-[6px] border border-[#E2E8F0] placeholder:text-sm placeholder:text-gray-500 outline-[#3B5AC2]" type="text" placeholder="Ana Silva Lopes">
+<form #form="ngForm" novalidate (ngSubmit)="certificateForm()">
+  <div class="text-center h-15 mb-8">
+    <h1 class="font-bold text-2xl text-[#121621] leading-9 mb-1">Certificados gerados</h1>
+    <p class="font-normal text-sm text-[#64748B] leading-5">Preencha os dados para gerar um novo certificado</p>
   </div>
 
-  <div class="flex items-end gap-2">
-    <div class="w-full flex flex-col gap-2">
-      <label class="font-normal text-sm leading-5 text-[#1A2856]" for="">Atividade</label>
-      <input class="px-3 py-2 rounded-[6px] border border-[#E2E8F0] placeholder:text-sm placeholder:text-gray-500 outline-[#3B5AC2]" type="text" placeholder="Implementação de data binding">
+  <div class="px-16">
+    <div class="flex w-full flex-col gap-5 rounded-lg p-8 border border-[#E2E8F0]">
+    <h2 class="font-bold text-lg text-[#121621] leading-7">Novo certificado</h2>
+
+    <div class="custom-input-group w-full flex flex-col gap-2">
+      <label class="font-normal text-sm leading-5 text-[#1A2856]" for="">Nome completo</label>
+      <input
+        class="px-3 py-2 rounded-[6px] border border-[#E2E8F0] placeholder:text-sm placeholder:text-gray-500 outline-[#3B5AC2]"
+        type="text"
+        placeholder="Ana Silva Lopes"
+        #nameRef="ngModel"
+        name="fullName"
+        [(ngModel)]="certificado.name"
+        required
+      />
+      @if(nameRef.invalid && nameRef.touched){
+
+        @if (nameRef.errors?.["required"]) {
+          <div class="error-message flex items-center gap-1 text-[#D71D1D]">
+            <i class="ph ph-warning-circle m-0 p-0"></i>
+            <p class="m-0 p-0 font-normal text-xs">Nome é obrigatório!</p>
+          </div>
+        }
+      }
+
     </div>
 
-    <app-secondary-button label="Adicionar"/>
+    <div class="custom-input-group">
+      <div class="flex items-end gap-2">
+        <div class="w-full flex flex-col gap-2">
+          <label class="font-normal text-sm leading-5 text-[#1A2856]" for="">Atividade</label>
+          <input
+            class="px-3 py-2 rounded-[6px] border border-[#E2E8F0] placeholder:text-sm placeholder:text-gray-500 outline-[#3B5AC2]"
+            type="text"
+            placeholder="Implementação de data binding"
+            #activityRef="ngModel"
+            name="activity"
+            [(ngModel)] = "activity"
+            />
+        </div>
+
+        <app-secondary-button
+          type="button"
+          [disabled]="!activity || activity.length === 0"
+          iconClass="ph ph-plus"
+          label="Adicionar"
+          (click)="addActivity()"
+          />
+      </div>
+    </div>
+
+    <div>
+      <p class="font-normal text-sm leading-5 mb-2 text-[#1A2856]">Lista de atividades</p>
+
+      <ul class="w-full border border-[#E2E8F0] pb-3 px-3 rounded-lg">
+        @for (activity of certificado.activities; track $index) {
+          <li class="flex items-center justify-between font-normal text-[15px] leading-6 text-[#121621] py-3">
+            {{activity}}
+            <div class="p-0.5 flex items-center justify-center hover:bg-[#E2E8F0]">
+              <i class="ph ph-x text-[#D71D1D] cursor-pointer" (click)="removeActivity($index)"></i>
+            </div>
+          </li>
+
+          @if($index + 1 < certificado.activities.length){
+            <hr class="text-[#E2E8F0] border-1">
+          }
+
+        }
+      </ul>
+    </div>
+
+    <app-primary-button type="submit" [disabled]="form.form.invalid || certificado.activities.length === 0" label="Gerar certificado"/>
+
+  </div>
   </div>
 
-  <div>
-    <p class="font-normal text-sm leading-5 mb-2 text-[#1A2856]">Lista de atividades</p>
-
-    <ul class="w-full border border-[#E2E8F0] pb-3 px-3 rounded-lg">
-      <li class="flex items-center justify-between font-normal text-[15px] leading-6 text-[#121621] py-3">
-        Introdução ao Angular
-        <div class="p-0.5 flex items-center justify-center hover:bg-[#E2E8F0]">
-          <i class="ph ph-x text-red-600 cursor-pointer"></i>
-        </div>
-      </li>
-      <hr class="text-[#E2E8F0] border-1">
-
-      <li class="flex items-center justify-between text-[15px] leading-6 text-[#121621] py-3">
-        Configuração com Angular CLI
-        <div class="p-0.5 flex items-center justify-center hover:bg-[#E2E8F0]">
-          <i class="ph ph-x text-red-600 cursor-pointer"></i>
-        </div>
-      </li>
-      <hr class="text-[#E2E8F0] border-1">
-
-      <li class="flex items-center justify-between text-[15px] leading-6 text-[#121621] py-3">
-        Criação de componentes reutilizáveis
-        <div class="p-0.5 flex items-center justify-center hover:bg-[#E2E8F0]">
-          <i class="ph ph-x text-red-600 cursor-pointer"></i>
-        </div>
-      </li>
-      <hr class="text-[#E2E8F0] border-1">
-
-      <li class="flex items-center justify-between text-[15px] leading-6 text-[#121621] py-3">
-        Manipulação de dados
-        <div class="p-0.5 flex items-center justify-center hover:bg-[#E2E8F0]">
-          <i class="ph ph-x text-red-600 cursor-pointer"></i>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <app-primary-button label="Gerar certificado"/>
-
-</div>
+</form>

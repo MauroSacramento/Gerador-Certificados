@@ -1,0 +1,10 @@
+<Button
+  [type]="type"
+  [disabled]="disabled" [ngStyle]="disabled ? {'opacity': '50%', 'cursor': 'not-allowed'} : {}"
+class="h-10 py-2 px-4 border-o rounded-[0.4rem] text-base font-semibold text-white bg-[#1A2856]
+cursor-pointer hover:opacity-90 flex items-center gap-2">
+  @if (iconClass) {
+    <i [class]="iconClass" class="text-[1.2rem]" ></i>
+  }
+  {{ label }}
+</Button>

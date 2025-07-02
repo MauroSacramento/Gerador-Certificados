@@ -4,7 +4,7 @@
     Voltar
   </a>
 
-  <app-secondary-button iconClass="ph ph-download-simples" label="Download"/>
+  <app-secondary-button iconClass="ph ph-download-simple" label="Download"/>
 </div>
 
 <div class="certificate flex items-center justify-center w-200 h-137.5 mt-8 rounded-xl relative">
@@ -17,16 +17,17 @@
         <h1 class="font-black text-2xl text-[#1A2856] uppercase tracking-[2.4px]">Certificado de conclusão</h1>
         <span class="font-normal text-xs text-[#121621]">Este certificado comprova que</span>
       </div>
-      <p class="font-dancing font-bold text-[52px] leading-20 text-[#3B5AC2]">Ana Silva Lopes</p>
+      <p class="font-dancing font-bold text-[52px] leading-20 text-[#3B5AC2]"> {{ certificate?.name }} </p>
 
       <div class="w-[413px] flex flex-col items-center gap-2">
         <span class="font-normal text-xs text-[#121621]" >Concluiu com sucesso as seguintes atividades</span>
         <p class="font-normal text-sm text-[#121621] text-center">
-          Introdução ao Angular, Configuração com Angular CLI, Criação de componentes reutilizáveis, Manipulação de dados,
-          Implementação de data binding, Criação de rotas com Angular Router, Consumo de APIs REST
+          <!-- Introdução ao Angular, Configuração com Angular CLI, Criação de componentes reutilizáveis, Manipulação de dados,
+          Implementação de data binding, Criação de rotas com Angular Router, Consumo de APIs REST -->
+          {{ certificate?.activities }}
         </p>
       </div>
     </div>
-    <p class="font-bold text-[11.2px] text-[#121621] mt-12 text-center">Emitido em 25/04/2025</p>
+    <p class="font-bold text-[11.2px] text-[#121621] mt-12 text-center">Emitido em {{ certificate?.dataEmissao }}</p>
   </div>
 </div>
