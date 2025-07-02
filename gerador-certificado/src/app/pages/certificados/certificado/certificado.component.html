@@ -4,10 +4,10 @@
     Voltar
   </a>
 
-  <app-secondary-button iconClass="ph ph-download-simple" label="Download"/>
+  <app-secondary-button (click)="downloadCertificado()" iconClass="ph ph-download-simple" label="Download"/>
 </div>
 
-<div class="certificate flex items-center justify-center w-200 h-137.5 mt-8 rounded-xl relative">
+<div #certificadoContainer class="certificate flex items-center justify-center w-200 h-137.5 mt-8 rounded-xl relative">
   <img class="absolute top-3 left-3 z-1" src="certificate/certif-logo.svg" alt="">
 
   <div class="w-180 h-[470px] rounded-lg pt-16 pb-10 px-10 bg-white relative">
@@ -24,7 +24,7 @@
         <p class="font-normal text-sm text-[#121621] text-center">
           <!-- Introdução ao Angular, Configuração com Angular CLI, Criação de componentes reutilizáveis, Manipulação de dados,
           Implementação de data binding, Criação de rotas com Angular Router, Consumo de APIs REST -->
-          {{ certificate?.activities }}
+          {{ certificate?.activities?.join(', ') }}
         </p>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SecondaryButtonComponent } from "../../_components/secondary-button/secondary-button.component";
 import { ItemCertificadoComponent } from "../../_components/item-certificado/item-certificado.component";
-import { RouterLink } from '@angular/router';
 import { Certificado } from '../../interfaces/Certificado';
 import { CertificadoService } from '../../_services/certificado.service';
 
